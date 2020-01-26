@@ -1,0 +1,235 @@
+* {
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+  margin: 0;
+}
+
+#app{
+  height: 100%;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: 'AdobeClean', Helvetica, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.42;
+  color: $gray;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: $white;
+}
+
+#modal{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wrapper {
+  position: relative;
+  overflow-x: hidden;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: url('../img/bg.jpg');
+  background-size: cover;
+  &:before{
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.75);
+    display: block;
+  }
+}
+
+.main{
+  position: relative;
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 1170px;
+  align-self: stretch;
+  min-width: 320px;
+  &_main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: $black;
+  &:hover{
+    text-decoration: underline;
+  }
+}
+
+.title{
+  position: relative;
+  color: $white;
+}
+
+.button{
+  color: $black;
+  font-family: 'AdobeClean', Helvetica, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 21px;
+  background-color: $yellow;
+  min-width: 160px;
+  padding: 11px 30px;
+  border: none;
+  border-top: 4px solid transparent;
+  border-bottom: 4px solid transparent;
+  outline: none;
+  border-radius: 4px;
+  cursor: pointer;
+  &:hover{
+    border-bottom-color: darken($yellow, 10%);
+  }
+  @include tablet {
+    font-size: 18px;
+    padding: 6px 20px;
+    min-width: 100px;
+  }
+  &_small{
+    font-size: 16px;
+    padding: 8px 15px;
+    display: inline-block;
+    @include tablet {
+      font-size: 14px;
+      padding: 4px 10px;
+    }
+  }
+}
+
+.input{
+  border: none;
+  outline: none;
+  border-bottom: 2px solid $light;
+  padding: 10px;
+  color: $dark;
+  font-family: 'AdobeClean', Helvetica, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 16px;
+  &:focus{
+    border-bottom-color: $blue;
+    &~.clear{
+      &:after, &:before{
+        background-color: $yellow;
+      }
+    }
+  }
+  &_background_color_yellow{
+    font-size: 24px;
+    &:focus{
+      border-bottom-color: $yellow;
+    }
+  }
+}
+
+.form{
+  width: 100%;
+  &__column{
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    .form__row:first-child{
+      margin-right: 15px;
+      margin-bottom: 0;
+    }
+    @include phone {
+      flex-direction: column;
+      width: 100%;
+      align-items: flex-start;
+      .form__row:first-child{
+        margin-right: 0;
+        margin-bottom: 10px;
+      }
+    }
+  }
+  &__row{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    width: 100%;
+    &:last-child{
+      margin-bottom: 0;
+    }
+  }
+  &__label{
+    cursor: pointer;
+    line-height: 1;
+    &_file{
+      align-self: flex-start;
+    }
+  }
+  &__button{
+    align-self: flex-end;
+    @include tablet {
+      align-self: center;
+    }
+  }
+  &_card{
+    .form__row:last-child{
+      width: 116px;
+    }
+    .form__label{
+      font-size: 15px;
+    }
+    .form__input{
+      padding-right: 30px;
+    }
+  }
+  &__textarea{
+    resize: none;
+    border: 2px solid $light;
+    margin-top: 10px;
+    padding-top: 10px;
+    &:focus{
+      border-color: $blue;
+    }
+  }
+}
+
+.error{
+  color: $red;
+  margin-bottom: 20px;
+}
+
+.loading{
+  font-size: 20px;
+}
+
+.home{
+  font-size: 30px;
+  color: $white;
+  text-align: center;
+}

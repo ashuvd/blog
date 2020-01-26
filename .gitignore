@@ -1,0 +1,6 @@
+.vscode
+.idea
+/node_modules
+/coverage
+/server/node_modules
+/server/.env

@@ -1,0 +1,62 @@
+.container{
+  &_header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+.header{
+  position: relative;
+  z-index: 1;
+  background-color: $white;
+  padding: 20px 0;
+  @include phone{
+    padding: 10px 0;
+  }
+}
+.logo{
+  width: 37px;
+  height: 37px;
+  &__img{
+    display: block;
+    width: 37px;
+    height: 37px;
+    fill: $red;
+  }
+  @include phone{
+    width: 26px;
+    height: 26px;
+    &__img{
+      width: 26px;
+      height: 26px;
+    }
+  }
+}
+.menu{
+  display: flex;
+  align-items: center;
+  &__item{
+    margin-right: 30px;
+    &:last-child{
+      margin-right: 0;
+    }
+    @include phone{
+      margin-right: 5px;
+    }
+  }
+  &__link{
+    display: block;
+    padding: 10px;
+    @include phone{
+      padding: 5px;
+    }
+    border-radius: 4px;
+    &_active{
+      background-color: $light;
+    }
+    &:hover{
+      background-color: $light;
+      text-decoration: none;
+    }
+  }
+}
